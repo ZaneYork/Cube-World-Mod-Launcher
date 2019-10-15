@@ -18,6 +18,7 @@ class DLL
         FARPROC HandleChat;
         FARPROC HandleP2PRequest;
         FARPROC HandleCheckInventoryFull;
+        FARPROC HandleCheckMapIconVisibility;
 
         DLL(std::string fileName);
         HMODULE Load();

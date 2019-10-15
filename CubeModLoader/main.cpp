@@ -52,11 +52,13 @@ void WriteFarJMP(void* source, void* destination) {
 #include "callbacks/ChatHandler.h"
 #include "callbacks/P2PRequestHandler.h"
 #include "callbacks/CheckInventoryFullHandler.h"
+#include "callbacks/CheckMapIconVisibilityHandler.h"
 
 void SetupHandlers() {
     SetupChatHandler();
     SetupP2PRequestHandler();
     SetupCheckInventoryFullHandler();
+    SetupCheckMapIconVisibilityHandler();
 }
 
 void Popup(const char* title, char* msg ){
@@ -96,6 +98,7 @@ extern "C" __declspec(dllexport) BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD
             IMPORT(dll, HandleChat);
             IMPORT(dll, HandleP2PRequest);
             IMPORT(dll, HandleCheckInventoryFull);
+            IMPORT(dll, HandleCheckMapIconVisibility);
         }
 
         // Ensure version compatibility
