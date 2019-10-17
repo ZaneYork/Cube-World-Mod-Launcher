@@ -10,6 +10,7 @@
 #define CUBE_VERSION "1.0.0-1"
 #define CUBE_PACKED_CRC 0xC7682619
 #define CUBE_UNPACKED_CRC 0xBA092543
+#define CUBE_UNPACKED_CN_CRC 0x937822A8
 
 #define MODLOADER_NAME "CubeModLoader"
 
@@ -234,7 +235,7 @@ extern "C" __declspec(dllexport) BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD
         GetModuleFileName(NULL, cubePath, _MAX_PATH);
 
         uint32_t checksum = crc32_file(cubePath);
-        if (checksum == CUBE_PACKED_CRC || checksum == CUBE_UNPACKED_CRC) {
+        if (checksum == CUBE_PACKED_CRC || checksum == CUBE_UNPACKED_CRC || checksum == CUBE_UNPACKED_CN_CRC) {
             // Patch some code to run StartMods. This method makes it work with AND without SteamStub.
             InitializationPatch();
         } else {
